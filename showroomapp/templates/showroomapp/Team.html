@@ -1,0 +1,25 @@
+{% extends 'showroomapp/base.html' %} 
+  
+ {% block title %} Team{% endblock %} 
+  
+ {% block content %} 
+ <style> 
+     img{ 
+         width: 300px; 
+         height: 300px; 
+     } 
+ </style> 
+     <h1>Our Team</h1> 
+     <ul> 
+         {% for staff_member in staff_members %} 
+             <li> 
+                 Name: {{ staff_member.name }} <br> 
+                 Position: {{ staff_member.position }} <br> 
+                 Showroom: {{ staff_member.showroom }} <br> <br> 
+                 {% if staff_member.picture %} 
+                     <img src="{{ staff_member.picture.url }}" alt="{{ staff_member.name }}"> <br> <br> 
+                 {% endif %} 
+             </li> 
+         {% endfor %} 
+     </ul> 
+ {% endblock %}

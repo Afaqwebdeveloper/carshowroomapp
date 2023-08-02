@@ -1,0 +1,12 @@
+{% extends 'showroomapp/base.html' %} 
+  
+ {% block title %} Brands{% endblock %} 
+  
+ {% block content %} 
+     <h1>Car Showroom - Brands</h1> 
+     <ul> 
+         {% for brand in brands %} 
+             <li><a href="{% url 'brand' brand.id %}">{{ brand.name }}</a></li> 
+         {% endfor %} 
+     </ul> 
+ {% endblock %}

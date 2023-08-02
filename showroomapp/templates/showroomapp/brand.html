@@ -1,0 +1,24 @@
+{% extends 'showroomapp/base.html' %}
+
+{% block title %}
+{{ brand.name }} Models{% endblock %}
+
+{% block content %}
+    <h1>{{ brand.name }} Models</h1>
+    <ul>
+        {% for model in models %}
+            <li>
+                <h2>{{ model.name }}</h2>
+                <h3>Engine Specs:</h3>
+                <p>{{ model.engine.specs }}</p>
+                <h3>Features:</h3>
+                <ul>
+                    {% for feature in model.features.all %}
+                        <li>{{ feature.name }}</li>
+                    {% endfor %}
+                </ul>
+                <p>Stock Left: {{ model.car_set.first.stock|default:"0" }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
